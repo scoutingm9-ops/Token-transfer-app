@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Token Transfer Interactive Shell</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Token Transfer Interactive Shell</h1>
+    <p>Enter details to interact with ETH, TON, or any ERC-20 token on Ethereum mainnet.</p>
+    
+    <div class="inputs">
+      <label>Withdraw From Wallet (Source Address):</label>
+      <input type="text" id="source-address" placeholder="e.g., 0x4d5F47FA6A74757f35C14fD3a6Ef8E3C9BC514E8">
+      
+      <label>Receive Funds (Destination Address):</label>
+      <input type="text" id="destination-address" placeholder="e.g., 0x7e5ea69a86caa1c3AEA0Baba27a4B53D6Ee7A061">
+      
+      <label>Select Wallet Type:</label>
+      <select id="wallet-type">
+        <option value="Trust Wallet">Trust Wallet</option>
+        <option value="Coinbase">Coinbase</option>
+        <option value="MetaMask">MetaMask</option>
+        <option value="Ledger">Ledger</option>
+        <option value="Other">Other</option>
+      </select>
+      
+      <label>Select Coin Type (or use custom below):</label>
+      <select id="coin-type">
+        <option value="ETH">ETH</option>
+        <option value="TON">TON</option>
+        <option value="WETH">WETH</option>
+        <option value="USDC">USDC</option>
+        <option value="DAI">DAI</option>
+        <option value="USDT">USDT</option>
+        <option value="UNI">UNI</option>
+        <option value="LINK">LINK</option>
+        <option value="WBTC">WBTC</option>
+        <option value="SHIB">SHIB</option>
+        <option value="BNB">BNB</option>
+      </select>
+      
+      <label>Custom ERC-20 Token Contract Address (optional, overrides selection):</label>
+      <input type="text" id="custom-token-address" placeholder="e.g., 0xYourCustomERC20Address">
+    </div>
+    
+    <div class="console">
+      <textarea id="console-input" placeholder="Type JavaScript code, 'clear', or use buttons below..."></textarea>
+      <div class="console-output" id="console-output"></div>
+    </div>
+    
+    <div class="buttons">
+      <button onclick="clearConsole()">Clear Console</button>
+      <button onclick="getBalance()">Get Balance</button>
+      <button onclick="prepareTransaction()">Prepare Transaction</button>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
